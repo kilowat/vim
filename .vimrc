@@ -12,7 +12,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'felixhummel/setcolors.vim'
+Plugin '2072/PHP-Indenting-for-VIm'
 
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/unite.vim'
+Bundle 'm2mdas/phpcomplete-extended'
+Bundle 'php.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,3 +35,15 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 autocmd vimenter * NERDTree
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+nmap <C-N>v :NERDTree<cr>
+vmap <C-N>v <esc>:NERDTree<cr>i
+imap <C-N>v <esc>:NERDTree<cr>i
+
+nmap <C-N>x :NERDTreeClose<cr>
+vmap <C-N>x <esc>:NERDTreeClose<cr>i
+imap <C-N>x <esc>:NERDTreeClose<cr>i
+
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+map  <C-n> :tabnew<CR>
