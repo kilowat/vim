@@ -1,8 +1,11 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype on                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set number
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -13,12 +16,16 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'felixhummel/setcolors.vim'
 Plugin '2072/PHP-Indenting-for-VIm'
+Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
+Plugin 'StanAngeloff/php.vim'
 
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/unite.vim'
 Bundle 'm2mdas/phpcomplete-extended'
-Bundle 'php.vim'
 
+
+filetype plugin on
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -36,14 +43,30 @@ filetype plugin indent on    " required
 
 autocmd vimenter * NERDTree
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-nmap <C-N>v :NERDTree<cr>
-vmap <C-N>v <esc>:NERDTree<cr>i
-imap <C-N>v <esc>:NERDTree<cr>i
 
-nmap <C-N>x :NERDTreeClose<cr>
-vmap <C-N>x <esc>:NERDTreeClose<cr>i
-imap <C-N>x <esc>:NERDTreeClose<cr>i
+let php_sql_query=1                                                                                        
+let php_htmlInStrings=1
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
+nmap <C-j>v :NERDTree<cr>
+vmap <C-j>v <esc>:NERDTree<cr>i
+imap <C-j>v <esc>:NERDTree<cr>i
+
+nmap <C-j>x :NERDTreeClose<cr>
+vmap <C-j>x <esc>:NERDTreeClose<cr>i
+imap <C-j>x <esc>:NERDTreeClose<cr>i
 
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
+
 map  <C-n> :tabnew<CR>
+colorscheme wombat256 
