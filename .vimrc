@@ -3,6 +3,7 @@ filetype on                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set number
+set omnifunc=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:airline_theme ='dark'
 let g:phpcomplete_index_composer_command = "composer"
@@ -30,7 +31,7 @@ filetype plugin indent on    " required
 
 
 autocmd vimenter * NERDTree
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+
 
 let php_sql_query=1                                                                                        
 let php_htmlInStrings=1
