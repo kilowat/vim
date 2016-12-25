@@ -1,16 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype on                  " required
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set number
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
+let g:airline_theme ='dark'
+let g:phpcomplete_index_composer_command = "composer"
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
@@ -19,27 +16,18 @@ Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'StanAngeloff/php.vim'
-
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/unite.vim'
-Bundle 'm2mdas/phpcomplete-extended'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 
 filetype plugin on
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
 
 autocmd vimenter * NERDTree
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
@@ -57,6 +45,8 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+colorscheme wombat256
+
 nmap <C-j>v :NERDTree<cr>
 vmap <C-j>v <esc>:NERDTree<cr>i
 imap <C-j>v <esc>:NERDTree<cr>i
@@ -69,4 +59,4 @@ map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 
 map  <C-n> :tabnew<CR>
-colorscheme wombat256 
+
