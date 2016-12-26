@@ -62,10 +62,5 @@ imap <C-j>x <esc>:NERDTreeClose<cr>i
 
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
-
-<<<<<<< HEAD
 map <C-n> :tabnew<CR>
-=======
 map  <C-n> :tabnew<CR>
-
->>>>>>> 800b2d8e7b9e7276a1dd04df2cb8724be322e942
