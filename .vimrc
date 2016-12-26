@@ -1,11 +1,13 @@
-et nocompatible              " be iMproved, required
+set nocompatible              " be iMproved, required
 filetype on                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set number
 set omnifunc=syntaxcomplete#Complete
 set tabstop=4
+set expandtab
 set shiftwidth=4
+
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:airline_theme ='dark'
 let g:phpcomplete_index_composer_command = "composer"
@@ -61,4 +63,9 @@ imap <C-j>x <esc>:NERDTreeClose<cr>i
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 
+<<<<<<< HEAD
 map <C-n> :tabnew<CR>
+=======
+map  <C-n> :tabnew<CR>
+
+>>>>>>> 800b2d8e7b9e7276a1dd04df2cb8724be322e942
