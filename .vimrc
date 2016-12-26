@@ -4,6 +4,10 @@ filetype on                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 set number
 set omnifunc=syntaxcomplete#Complete
+set tabstop=4
+set expandtab
+set shiftwidth=4
+
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:airline_theme ='dark'
 let g:phpcomplete_index_composer_command = "composer"
