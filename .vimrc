@@ -10,7 +10,11 @@ set shiftwidth=4
 
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:airline_theme ='dark'
-let g:phpcomplete_index_composer_command = "composer"
+:set number
+:set cursorline
+:hi cursorline cterm=none
+:hi cursorlinenr ctermfg=yellow
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -28,14 +32,11 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-
 filetype plugin on
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-
 autocmd vimenter * NERDTree
-
 
 let php_sql_query=1                                                                                        
 let php_htmlInStrings=1
